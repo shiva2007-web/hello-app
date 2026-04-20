@@ -1,7 +1,8 @@
 public class HelloApp {
     public static void main(String[] args) {
-        // Assumes an argument is provided (e.g., java HelloApp Alice)
-        String name = args[0];
+        // Ternary Operator: (condition) ? value_if_true : value_if_false
+        String name = (args.length > 0) ? args[0] : "World";
+        
         System.out.println("Hello, " + name + "!");
     }
 }
