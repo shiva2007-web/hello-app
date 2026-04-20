@@ -1,8 +1,18 @@
 public class HelloApp {
     public static void main(String[] args) {
-        // Ternary Operator: (condition) ? value_if_true : value_if_false
-        String name = (args.length > 0) ? args[0] : "World";
-        
-        System.out.println("Hello, " + name + "!");
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+        } else {
+            StringBuilder nameBuilder = new StringBuilder();
+            // Traditional for loop
+            for (int i = 0; i < args.length; i++) {
+                nameBuilder.append(args[i]);
+                // Add a comma and space except for the last name
+                if (i < args.length - 1) {
+                    nameBuilder.append(", ");
+                }
+            }
+            System.out.println("Hello, " + nameBuilder.toString() + "!");
+        }
     }
 }
