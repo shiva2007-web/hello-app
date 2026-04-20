@@ -1,6 +1,7 @@
 public class HelloApp {
     public static void main(String[] args) {
-        // Simple output to console
-        System.out.println("Hello, World!");
+        // Assumes an argument is provided (e.g., java HelloApp Alice)
+        String name = args[0];
+        System.out.println("Hello, " + name + "!");
     }
 }
