@@ -1,22 +1,18 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class HelloApp {
     public static void main(String[] args) {
-        if (args.length == 0) {
+        // UC7: Evolution to Stream-based processing with Input Validation
+        String joinedNames = Arrays.stream(args)
+                .filter(name -> name != null && !name.trim().isEmpty())
+                .filter(name -> !name.matches("\\d+")) // UC7: Ignore purely numeric inputs
+                .collect(Collectors.joining(", "));
+
+        if (joinedNames.isEmpty()) {
             System.out.println("Hello, World!");
-            return; // Exit early if no args
+        } else {
+            System.out.println("Hello, " + joinedNames + "!");
         }
-
-        StringBuilder nameBuilder = new StringBuilder();
-        boolean first = true;
-
-        // Enhanced for-loop (For-Each)
-        for (String name : args) {
-            if (!first) {
-                nameBuilder.append(", ");
-            }
-            nameBuilder.append(name);
-            first = false;
-        }
-
-        System.out.println("Hello, " + nameBuilder.toString() + "!");
     }
 }
